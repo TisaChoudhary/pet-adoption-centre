@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paws & Love – Pet Adoption Center</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    nav {
+      background-color: #ff6f61;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    header {
+      padding: 40px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+      color: #ff6f61;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    section {
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .pets {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .pet {
+      width: 250px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .pet img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .pet h3 {
+      margin: 10px 0 5px;
+    }
+
+    .pet p {
+      font-size: 14px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 80%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .contact-form button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#pets">Pets</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home">
+    <h1>🐾 Paws & Love 🐾</h1>
+    <p>Your new best friend is waiting for you!</p>
+    <button onclick="adoptPet()">Adopt Now</button>
+  </header>
+
+  <section id="pets">
+    <h2>Meet Our Adorable Pets</h2>
+    <div class="pets">
+      <div class="pet">
+        <img src="https://placedog.net/400/300?id=1" alt="Dog">
+        <h3>Bruno</h3>
+        <p>Loyal and energetic golden retriever.</p>
+      </div>
+      <div class="pet">
+        <img src="data:image/jpeg;base64,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" alt="Luna the Cat">
+        <h3>Luna</h3>
+        <p>Playful kitten who loves cuddles.</p>
+      </div>
+      <div class="pet">
+        <img src="https://placedog.net/400/300?id=2" alt="Dog">
+        <h3>Max</h3>
+        <p>Protective and brave German shepherd.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a small team committed to helping rescue animals find loving homes. Every adoption supports medical care and food for more pets in need.At Paws & Love, we believe every animal deserves a second chance at happiness. We are a non-profit pet adoption center dedicated to rescuing, rehabilitating, and rehoming stray and abandoned animals. Our mission is to create a safe and loving environment for pets until they find their forever homes. 
+
+With a passionate team of volunteers, veterinarians, and caregivers, we ensure that each pet receives proper medical care, food, and love. We also educate our community on responsible pet ownership, animal welfare, and the importance of adoption over shopping. 
+
+Whether you're looking for a playful puppy, a calm senior cat, or a loyal companion, we’re here to help you find your perfect match. Join us in giving these wonderful animals a better life—one paw at a time.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 123 Rescue Street, Petland, IN 45678<br>
+    📞 (123) 456-7890<br>
+    ✉️ pawsandlove@adoptpets.com</p>
+
+    <div class="contact-form">
+      <input type="text" placeholder="Your name" required><br>
+      <input type="email" placeholder="Your email" required><br>
+      <textarea placeholder="Your message" rows="4"></textarea><br>
+      <button>Submit</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Paws & Love | Made with ❤️</p>
+  </footer>
+
+  <script>
+    function adoptPet() {
+      alert("Thank you for choosing to adopt! 🐶🐱");
+    }
+  </script>
+
+</body>
+</html>
